@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   
+    <title> Menu </title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Menu nhà hàng</h1>
+
+        <header class="main-header">
+            <!-- Khối tìm kiếm -->
+            <div class="search-container">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Tìm kiếm món ăn...">
+                    <button type="submit" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            <!-- Khối giỏ hàng -->
+            <div class="cart-icon-container">
+                <a href="/cart" class="cart-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="food">
+        
+            <div class="card">
+                <img src="Screenshot 2025-12-02 150811.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Tên món </h5>
+                    <p class="card-text"> Trạng thái </p>
+                    <!--Khối giá-->
+                    <div class="gia">
+                        <span class="giahientai"> Giá hiện tại ?</span>
+                    </div>
+                    <!--Khối số lượng-->
+                    <div class="quantity" data-product-id="mon">
+                        <button type="button" class="qty-btn minus-btn" data-action="minus">-</button>
+                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                        <button type="button" class="qty-btn plus-btn" data-action="plus">+</button>
+                    </div>
+                    <button class="add"> <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script src="https://kit.fontawesome.com/bd4cdf4588.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script> window.API_BASE_URL ="";</script>
+    <script src="menu.js"></script>
+   
+</body>
+
+</html>
