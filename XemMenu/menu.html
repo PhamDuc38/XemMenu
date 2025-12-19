@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="menu.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <title>Menu</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>MENU NHÀ HÀNG</h1>
+
+      <header class="main-header">
+        <!-- Khối tìm kiếm -->
+        <div class="search-container">
+          <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Tìm kiếm món ăn..." />
+            <button type="submit" class="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+        <!-- Khối giỏ hàng -->
+        <div class="cart-icon-container">
+          <a href="cart.html" class="cart-link">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </header>
+
+      <div class="food">
+        <div class="card">
+          <img src="" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Tên món</h5>
+            <!--Khối giá-->
+            <div class="gia">
+              <span class="giahientai"> Giá hiện tại ?</span>
+            </div>
+            <!--Khối số lượng-->
+            <div class="quantity" data-product-id="mon">
+              <button
+                type="button"
+                class="qty-btn minus-btn"
+                data-action="minus"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                class="qty-input"
+                value="1"
+                min="1"
+                readonly
+              />
+              <button type="button" class="qty-btn plus-btn" data-action="plus">
+                +
+              </button>
+            </div>
+            <button class="add">
+              <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <h6 class="tongTien"> TỔNG TIỀN </h6>
+        <button type="button" class="pay-btn pay" id="btn-thanh-toan">THANH TOÁN</button>
+
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Quét mã QR để thanh toán</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <div class="mb-3 px-4">
+                  <label for="table-number" class="form-label fw-bold">Nhập số bàn của bạn:</label>
+                  <input type="number" class="form-control text-center" id="table-number" placeholder="Ví dụ: 5" min="1">
+                </div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=ThanhToanNhaHang" 
+                    alt="QR Code" class="img-fluid mb-3" style="max-width: 250px;">
+                <p class="fw-bold text-danger" id="modal-tong-tien"></p>
+                <p class="text-muted small">Sau khi thanh toán bằng mã QR vui lòng nhấn vào Đã thanh toán bằng QR. Nếu bạn thanh toán sau bằng tiền mặt vui lòng nhấn vào Thanh toán bằng tiền mặt.</p>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success" id="btn-da-thanh-toan">Đã thanh toán bằng QR</button>
+                <button type="button" class="btn btn-secondary" id="btn-tien-mat">Thanh toán bằng tiền mặt</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/bd4cdf4588.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.API_BASE_URL = "http://localhost:3000";
+    </script>
+    <script src="menu.js"></script>
+  </body>
+</html>
